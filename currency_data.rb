@@ -1,29 +1,40 @@
 #currency_data class for holding multiple currency objects
 class CurrencyData
   
-  attr_accessor :currencies, :timestamp
+  attr_accessor :currencies, :timestamp, :open_exchange
 
-  def initialize
-    puts 'CurrencyData has been initialized'
+  def initialize(app_id)
+    base_url = 'http://openexchangerates.org/api/'
     @currencies = Hash.new
+    @open_exchange = OpenExchange.new(base_url,app_id)
+    load_base_currencies
   end
 
-  def load_all_currencies
-    puts 'load_all_currencies'
-    json_data = File.read('currencies.json')
-    parsed_data = JSON.parse(json_data)
-    parsed_data.each do |j|
+  def load_base_currencies
+    parsed_data = @open_exchange.load_local_currencies 
+    parsed_data.each do |pdi|
       #create currency objects
-      currency = Currency.new
-      currency.with_json(j)
+      c = Currency.new(pdi)
+      @currencies[c.symbol] = c
     end
-    puts parsed_data.size
-    @currencies = parsed_data
+  end
+
+  def load_currency(date=nil)#yyyy-mm-dd.json
+    parsed_data = @open_exchange.load_remote_currencies(date)
+    
+    puts 'base: ' + parsed_data['base']
+    parsed_data['rates'].each do |pdi|
+      if @currencies.has_key?(pdi[0].to_s)
+        c = @currencies[pdi[0].to_s]
+ 	c.value = pdi[1]
+      else
+	puts 'key: ' +  pdi[0].to_s + ' not in data controller'
+      end
+    end
   end
 
   def show
-    #puts 'showing all currencies'
-    #@currencies.each { |c| puts c }
+    @currencies.each { |c| c[1].show }
   end
 
 end
