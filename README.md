@@ -5,6 +5,22 @@ Ruby script for pulling the latest (or historical) currency data from OpenExchan
 
 <h2>Usage</h2>
 <p>To see a sample use of accessing the open exchange rates api data execute run bot file from the command line</p>
+
+`````ruby
+require 'currency_data'
+
+puts 'Instantiating a new CurrencyData object with your app id'
+cd = CurrencyData.new('YOUR_APP_ID')
+
+puts 'load the latest currency data and showing...'
+cd.load_currency
+cd.show
+
+puts 'load historic currency data for September 4th, 2011 and showing...'
+cd.load_currency('2011-09-04')
+cd.show
+`````
+
 <p><span>note:</span>You must sign up for a free app id at <a href="http://openexchangerates.org">Open Exchange Rates</a>.  The free version allows for 1000 requests per month and 1 hour updates on rates.  You can pay for more requests and 10 minute updates of rates.</p>
 
 <h2>Files</h2>
