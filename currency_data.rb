@@ -1,4 +1,7 @@
 #currency_data class for holding multiple currency objects
+require 'currency'
+require 'open_exchange'
+
 class CurrencyData
   
   attr_accessor :currencies, :timestamp, :open_exchange

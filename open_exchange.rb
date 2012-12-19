@@ -1,4 +1,8 @@
 #open exchange api wrapper
+require 'rubygems'
+require 'json'
+require 'open-uri'
+
 class OpenExchange
   
   attr_accessor :base_url, :app_id, :parsed_data

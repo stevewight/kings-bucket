@@ -1,14 +1,8 @@
-#run_bot, script starting point for the trade_bot
-require 'stock'
-require 'currency'
+#run_bot, script starting point for kings-bucket
 require 'currency_data'
-require 'rubygems'
-require 'json'
-require 'open-uri'
-require 'open_exchange'
 
 #create the CurrencyData object passing your open exchange app id
-cd = CurrencyData.new('OPEN_EXCHANGE_APP_ID')
+cd = CurrencyData.new('d7f497d3d54b4b6cb2a3ec60071ff1dd')
 
 #load latest currency values
 cd.load_currency
