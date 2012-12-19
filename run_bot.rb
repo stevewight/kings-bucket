@@ -2,7 +2,7 @@
 require 'currency_data'
 
 #create the CurrencyData object passing your open exchange app id
-cd = CurrencyData.new('d7f497d3d54b4b6cb2a3ec60071ff1dd')
+cd = CurrencyData.new('YOUR_APP_ID')
 
 #load latest currency values
 cd.load_currency
