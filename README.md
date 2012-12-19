@@ -13,5 +13,5 @@ Ruby script for pulling the latest (or historical) currency data from OpenExchan
   <li><h3>currency_data.rb</h3><p>The CurrencyData object interfaces with the OpenExchange object and creates/stores Currency objects that it parses from the api data.</p></li>
   <li><h3>open_exchange.rb</h3><p>OpenExchange is the wrapper around the Open Exchange Rates api.  Pull's the latest currency rates or historical currency rates.  Also returns the local currencies.json file for creation of initial @currencies hash.</p></li>
   <li><h3>run_bot.rb</h3><p>Sample run of the script</p></li>
-  <li><h3>currencies.json</h3><p>Local version of symbole => name for all the currencies</p></li>
+  <li><h3>currencies.json</h3><p>Local version of symbol => name data for all the currencies</p></li>
 </ul>
