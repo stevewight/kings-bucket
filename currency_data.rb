@@ -1,6 +1,6 @@
 #currency_data class for holding multiple currency objects
-require 'currency'
-require 'open_exchange'
+require_relative 'currency'
+require_relative 'open_exchange'
 
 class CurrencyData
   
