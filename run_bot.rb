@@ -1,8 +1,9 @@
 #run_bot, script starting point for kings-bucket
 require_relative 'currency_data'
+require_relative 'api_key'
 
 #create the CurrencyData object passing your open exchange app id
-cd = CurrencyData.new('d7f497d3d54b4b6cb2a3ec60071ff1dd')
+cd = CurrencyData.new(API_KEY)
 
 #load latest currency values
 cd.load_currency
