@@ -25,13 +25,10 @@ class CurrencyData
   def load_currency(date=nil)#yyyy-mm-dd.json
     parsed_data = @open_exchange.load_remote_currencies(date)
     
-    puts 'base: ' + parsed_data['base']
     parsed_data['rates'].each do |pdi|
       if @currencies.has_key?(pdi[0].to_s)
         c = @currencies[pdi[0].to_s]
- 	c.value = pdi[1]
-      else
-	puts 'key: ' +  pdi[0].to_s + ' not in data controller'
+ 	      c.value = pdi[1]
       end
     end
   end

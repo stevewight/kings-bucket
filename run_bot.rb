@@ -9,7 +9,7 @@ cd = CurrencyData.new(API_KEY)
 cd.load_currency
 
 #load historic currency values by passing a date parameter
-cd.load_currency('2010-09-04')
+cd.load_currency('2015-09-04')
 
 #show all the currencies
 cd.show
